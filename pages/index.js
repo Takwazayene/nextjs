@@ -9,7 +9,7 @@ export default function Component() {
   const router = useRouter()
 
   useEffect(() => {
-    if (!(session)) {
+    if ((session)) {
       router.push('/posts')
     }
   }, [])
@@ -20,7 +20,9 @@ export default function Component() {
       <>
         Signed in as {session.user.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
-
+        <button type="button" onClick={() => router.push('/posts')}>
+     posts
+    </button>
 
       </>
     )
@@ -29,9 +31,7 @@ export default function Component() {
     <>
       Not signed in <br />
       <button onClick={() => signIn()}>Sign in</button> 
-      <button type="button" onClick={() => router.push('/posts')}>
-     posts
-    </button>
+    
 
 
     </>
