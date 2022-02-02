@@ -6,6 +6,13 @@ import { useRouter } from 'next/router'
 export default function Component() {
 
   const { data: session } = useSession()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!(session)) {
+      router.push('/posts')
+    }
+  }, [])
 
 
   if (session) {
@@ -18,10 +25,16 @@ export default function Component() {
       </>
     )
   }
-  return (
+  return ( 
     <>
       Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
+      <button onClick={() => signIn()}>Sign in</button> 
+      <button type="button" onClick={() => router.push('/posts')}>
+     posts
+    </button>
+
+
     </>
-  )
+    
+  );
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import styles from '../../styles/posts.module.css'
 import Link from 'next/link'
+
+
 class Posts extends React.Component {
   constructor () {
     super();
