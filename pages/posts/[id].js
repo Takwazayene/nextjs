@@ -81,7 +81,7 @@
 
 */
 
-    import { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import React,{useState} from 'react'
 import Comments from './Comments'
