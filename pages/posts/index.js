@@ -1,6 +1,7 @@
 import React from "react";
 import styles from '../../styles/posts.module.css'
 import Link from 'next/link'
+import { getSession } from "next-auth/react"
 
 
 class Posts extends React.Component {
@@ -16,7 +17,14 @@ class Posts extends React.Component {
     await this.getdata();
   }
 
-  getdata = async () => {
+  getdata = async (req, ress) => {
+
+    const session = await getSession({ req })
+
+
+    if (session) {
+    
+    
     try {
       const res = await fetch('https://jsonplaceholder.typicode.com/posts');
 
@@ -27,6 +35,14 @@ class Posts extends React.Component {
     } catch (err) {
       console.log(err);
     }
+
+  }
+    else {
+      ress.send({
+        error: "You must be sign in to view the protected content on this page.",
+      })
+    }
+
   }
 
 render() {

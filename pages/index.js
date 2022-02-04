@@ -8,12 +8,12 @@ export default function Component() {
   const { data: session } = useSession()
   const router = useRouter()
 
-  useEffect(() => {
+ /* useEffect(() => {
     if ((session)) {
       router.push('/posts')
     }
-  }, [])
-
+  }, [session])
+*/
 
   if (session) {
     return (
