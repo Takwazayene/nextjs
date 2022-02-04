@@ -60,7 +60,7 @@ console.log("nnjaaaa", this.state.post);
             <Link href={'/posts/'+ i} key={i}>
          <a key={i} className = { styles.single }>  
             <h3  key={i} className="list-group-item">{d.title}</h3>
-            </a>
+            </a>  
             </Link>
 
 
